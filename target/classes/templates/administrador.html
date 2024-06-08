@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CRUD de Usuarios</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="./css/style1.css"> 
+  <style>
+    .corner-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+	body {
+	    font-family: 'Roboto', sans-serif;
+	    background-image: url('https://static.vecteezy.com/system/resources/previews/010/632/871/non_2x/abstract-wave-green-background-free-vector.jpg');
+	    background-repeat: no-repeat;
+	    background-attachment: fixed;
+	    background-size: cover;  }
+	  
+	  .welcome-title {
+	    margin-top: 50px;
+	    font-size:90px;
+	    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	    margin-bottom: 30px;
+	    color: #36b60b;
+	  }
+	  
+	  .card {
+	    margin-bottom: 30px;
+	    border: 1px solid #ccc;
+	    border-radius: 10px;
+	    margin-left: 30px;
+	    padding-left: 0px;
+	    padding-right: 15px;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	    background-color: #fff;
+	    height: 300px; 
+	  }
+	  
+	  .card-title {
+	    margin-bottom: 15px;
+	  }
+	  
+	  .btn-primary,
+	  .btn-success,
+	  .btn-warning,
+	  .btn-danger {
+	    width: 100%; 
+	  }
+	  
+	  .btn-primary {
+	    background-color: #007bff;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #007bff;
+	  }
+	  
+	  .btn-primary:hover {
+	    background-color: #0056b3;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #0056b3;
+	  }
+	  
+	  .btn-success {
+	    background-color: #28a745;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #28a745;
+	  }
+	  
+	  .btn-success:hover {
+	    background-color: #218838;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #218838;
+	  }
+	  
+	  .btn-warning {
+	    background-color: #ffc107;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #ffc107;
+	  }
+	  
+	  .btn-warning:hover {
+	    background-color: #d39e00;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #d39e00;
+	  }
+	  
+	  .btn-danger {
+	    background-color: #dc3545;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #dc3545;
+	    color: #fff;
+	  }
+	  
+	  .btn-danger:hover {
+	    background-color: #c82333;
+	    border-radius: 10px;
+	    margin: 10px;
+	    border-color: #bd2130;
+	  }
+	  
+	  .btn-group {
+	    display: flex;
+	    justify-content: center;
+	  }
+	  
+  </style>
+</head>
+<body>
+
+<div class="container text-center">
+  <h1 class="welcome-title">GESTIONAR<br> USUARIOS</h1><br><br>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Docentes</h5>
+          <a href="lista_Docentes.html" class="btn btn-primary">Ver Docentes</a><br>
+          <a href="formDocente.html" class="btn btn-success">Agregar Docente</a><br>
+          <a href="lista_Docentes.html" class="btn btn-warning">Editar Docente</a>
+          <a href="lista_Docentes.html" class="btn btn-danger">Eliminar Docente</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-user-graduate"></i> Estudiantes</h5>
+          <a href="lista_estudiantes.html" class="btn btn-primary">Ver Estudiantes</a>
+          <a href="formEstudiante.html" class="btn btn-success">Agregar Estudiante</a>
+          <a href="lista_estudiantes.html" class="btn btn-warning">Editar Estudiante</a>
+          <a href="lista_estudiantes.html" class="btn btn-danger">Eliminar Estudiante</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-user-tie"></i> Coordinadores</h5>
+          <a href="lista_Coordinadores.html" class="btn btn-primary">Ver Coordinadores</a>
+          <a href="formCoordinador.html" class="btn btn-success">Agregar Coordinador</a>
+          <a href="lista_Coordinadores.html" class="btn btn-warning">Editar Coordinador</a>
+          <a href="lista_Coordinadores.html" class="btn btn-danger">Eliminar Coordinador</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="/inicio" class="btn btn-light corner-btn">Volver al inicio</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>

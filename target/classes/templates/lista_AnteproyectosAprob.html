@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Anteproyectos aprobados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Lista de Anteproyectos Aprobados</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proyecto</th>
+                    <th>Director</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="Anteproyectos_Aprobados : ${listaAnteproyectosAprob}">
+                    <td th:text="${Anteproyectos_Aprobados.id}">1</td>
+                    <td th:text="${Anteproyectos_Aprobados.proyecto}">Nombre</td>
+                    <td th:text="${Anteproyectos_Aprobados.director}">Cédula</td>
+					
+					<td>
+		<a class="btn btn-info btn-xs" th:href="@{'/Anteproyectos_Aprobados/editar'+ '/' + ${Anteproyectos_Aprobados.id}}" th:text="'editar'"></a>
+		&nbsp; &nbsp;
+		<a class="btn btn-danger btn-xs" th:href="@{'/Anteproyectos_Aprobados/eliminar'+ '/' + ${Anteproyectos_Aprobados.id}}" th:text="'eliminar'"></a>
+					                                </td>	
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

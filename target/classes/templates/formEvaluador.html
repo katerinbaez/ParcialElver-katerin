@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro de Evaluadores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container d-flex flex-column justify-content-center align-items-center">
+   <main class="d-flex justify-content-center flex-column align-items-center p-3 m-3">
+       <h1>Ingresar datos del evaluador</h1>
+       <h2>Ingrese los datos del evaluador.</h2>
+       <br>
+       <form th:action="@{/guardarEvaluador}" th:object="${evaluador}" method="post"
+           class="d-flex flex-column p-5 g-3 needs-validation m-3">
+           <input type="hidden" th:field="*{id}" />
+           <h4>Solicitud de datos:</h4>
+           <div class="mb-3 form-floating">
+               <select class="form-control" name="anteproyecto" th:field="*{anteproyecto}">
+                   <option th:each="anteproyectosAprob : ${listaAnteproyectosAprob}"
+                           th:value="${anteproyectosAprob.proyecto}" th:text="${anteproyectosAprob.proyecto}">
+                   </option>
+               </select>
+               <label for="anteproyecto" class="form-label p-3">Anteproyecto: </label>
+           </div>
+           <div class="mb-3 form-floating">
+               <select class="form-control" name="evaluador" th:field="*{evaluador}">
+                   <option th:each="docente : ${listaDocente}"
+                           th:value="${docente.nombre}" th:text="${docente.nombre}">
+                   </option>
+               </select>
+               <label for="evaluador" class="form-label p-3">Evaluador: </label>
+           </div>
+           <div class="d-flex mb-3">
+               <input type="submit" class="form-control btn-outline-dark me-4" value="Enviar">
+               <input type="reset" class="form-control btn btn-dark" value="Restablecer">
+           </div>
+       </form>
+   </main>
+</body>
+</html>

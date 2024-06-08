@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Coordinador</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/632/871/non_2x/abstract-wave-green-background-free-vector.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 40px 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #6ea743;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 700;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #5eff00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        button:hover {
+            background-color: #0cb300;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Formulario de Coordinador</h1>
+    <form action="/guardarCoordinador" method="post" th:object="${coordinador}" class="mt-4">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombre}" class="form-control" id="nombre">
+        </div>
+        <div class="form-group">
+            <label for="cedula">Cédula:</label>
+            <input type="text" th:field="*{cedula}" class="form-control" id="cedula">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" th:field="*{telefono}" class="form-control" id="telefono">
+        </div>
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+    <div class="btn-group mt-4">
+        <a href="/lista_Coordinadores.html" class="btn btn-success mb-2">Volver a la Lista de Coordinadores</a>
+        <a href="/inicio" class="btn btn-success">Volver al Inicio</a>
+    </div>
+</div>
+</body>
+</html>

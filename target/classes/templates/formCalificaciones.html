@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Calificaciones</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Calificaciones</h1>
+        <form action="/guardarCalificaciones" method="post" th:object="${calificacion_Proyectos}" class="mt-4">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+				              <select class="form-control" name="proyecto_titulo" th:field="*{proyecto_titulo}">
+				                  <option th:each="anteproyectosAprob : ${listaAnteproyectosAprob}"
+				                          th:value="${anteproyectosAprob.titulo}" th:text="${anteproyectosAprob.titulo}">
+				                  </option>
+				              </select>
+				              <label for="proyecto_titulo" class="form-label p-3">Anteproyectos a calificar: </label>
+				          </div>
+            <div class="form-group">
+                <label for="calificacion_director">Calificacion del director:</label>
+                <input type="text" th:field="*{calificacion_director}" class="form-control" id="calificacion_director">
+            </div>
+            <div class="form-group">
+                <label for="calificacion_Evaluador">Calificacion del evaluador:</label>
+                <input type="text" th:field="*{calificacion_Evaluador}" class="form-control" id="calificacion_Evaluador">
+            </div>
+   
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <div class="mt-4">
+            <a href="/lista_Calificaciones.html" class="btn btn-secondary mr-2">Volver a la Lista de Calificaciones</a>
+            <a href="/Calificacion_Proyectos/inicio" class="btn btn-secondary">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>

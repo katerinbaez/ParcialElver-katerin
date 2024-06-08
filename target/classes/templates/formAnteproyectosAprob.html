@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro de Anteproyectos aprobados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container d-flex flex-column justify-content-center align-items-center">
+   <main class="d-flex justify-content-center flex-column align-items-center p-3 m-3">
+       <h1>Ingresar datos del Anteproyecto a aprobar</h1>
+       <h2>Ingrese los datos del Anteproyecto .</h2>
+       <br>
+       <form th:action="@{/guardarAnteproyectosAprob}" th:object="${anteproyectosAprob}" method="post"
+           class="d-flex flex-column p-5 g-3 needs-validation m-3">
+           <input type="hidden" th:field="*{id}" />
+           <h4>Solicitud de datos:</h4>
+           <div class="mb-3 form-floating">
+               <select class="form-control" name="proyecto" th:field="*{proyecto}">
+                   <option th:each="registros_Proyectos : ${listaRegProyectos}"
+                           th:value="${registros_Proyectos.proyecto_titulo}" th:text="${registros_Proyectos.proyecto_titulo}">
+                   </option>
+               </select>
+               <label for="proyecto" class="form-label p-3">Anteproyecto: </label>
+           </div>
+           <div class="mb-3 form-floating">
+               <select class="form-control" name="director" th:field="*{director}">
+                   <option th:each="docente : ${listaDocente}"
+                           th:value="${docente.nombre}" th:text="${docente.nombre}">
+                   </option>
+               </select>
+               <label for="director" class="form-label p-3">Director: </label>
+           </div>
+           <div class="d-flex mb-3">
+               <input type="submit" class="form-control btn-outline-dark me-4" value="Enviar">
+               <input type="reset" class="form-control btn btn-dark" value="Restablecer">
+           </div>
+       </form>
+   </main>
+</body>
+</html>

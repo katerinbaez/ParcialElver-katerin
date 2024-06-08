@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Observaciones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Lista de Observaciones realizadas</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proyecto</th>
+                    <th>Evaluador</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="Observaciones_Proyectos : ${listaObservaciones}">
+                    <td th:text="${Observaciones_Proyectos.id}">1</td>
+                    <td th:text="${Observaciones_Proyectos.proyecto_titulo}">Nombre</td>
+                    <td th:text="${Observaciones_Proyectos.evaluador}">Cédula</td>
+                    <td th:text="${Observaciones_Proyectos.observaciones}">Teléfono</td>
+					
+					<td>
+		<a class="btn btn-info btn-xs" th:href="@{'/Observaciones_Proyectos/editar'+ '/' + ${Observaciones_Proyectos.id}}" th:text="'editar'"></a>
+		&nbsp; &nbsp;
+		<a class="btn btn-danger btn-xs" th:href="@{'/Observaciones_Proyectos/eliminar'+ '/' + ${Observaciones_Proyectos.id}}" th:text="'eliminar'"></a>
+					                                </td>	
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

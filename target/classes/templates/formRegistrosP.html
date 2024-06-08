@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro de Proyectos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/632/871/non_2x/abstract-wave-green-background-free-vector.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Ajuste de opacidad */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajuste de sombra */
+        }
+    
+        h1, h2 {
+            font-weight: 700;
+            color: #6ea743;
+            text-align: center;
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            font-weight: 600;
+        }
+    
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+    
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #6ea743;
+        }
+    
+        button[type="submit"],
+        .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+    
+        button[type="submit"] {
+            background-color: rgb(0, 128, 64);
+            color: #fff;
+        }
+    
+        .btn-secondary {
+            background-color: #fff; /* Cambio de color */
+            color: rgb(0, 128, 0); /* Cambio de color */
+            border: 1px solid rgb(0, 64, 0); /* Añadir borde */
+        }
+    
+        button[type="submit"]:hover,
+        .btn-secondary:hover {
+            background-color: #0cb300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ingresar Datos del Registro</h1>
+        <h2>Ingrese los Datos del Proyecto</h2>
+        <br>
+        <form th:action="@{/guardarRegistrosP}" th:object="${registros_Proyectos}" method="post" class="p-5">
+            <input type="hidden" th:field="*{id}" />
+            <h4>Solicitud de Datos:</h4>
+            
+            <!-- Lista de Anteproyectos -->
+            <div class="mb-3 form-floating">
+                <select class="form-control" name="titulo" th:field="*{proyecto_titulo}">
+                    <option th:each="anteproyecto : ${listaAnteproyectos}" th:value="${anteproyecto.titulo}" th:text="${anteproyecto.titulo}">Titulo del Proyecto</option>
+                </select>
+                <label for="proyecto_titulo" class="form-label">Titulo:</label>
+            </div>
+            
+            <!-- Lista de Estudiantes para Estudiante 1 -->
+            <div class="mb-3 form-floating">
+                <select class="form-control" name="estudiante1" th:field="*{estudiante1}">
+                    <option th:each="estudiante : ${listaEstudiantes}" th:value="${estudiante.nombre}" th:text="${estudiante.nombre}">Nombre del Estudiante 1</option>
+                </select>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('estudiante1')}" th:errors="*{estudiante1}"></small>
+                <label for="estudiante1" class="form-label">Nombre del Estudiante 1:</label>
+            </div>
+            
+            <!-- Lista de Estudiantes para Estudiante 2 -->
+            <div class="mb-3 form-floating">
+                <select class="form-control" name="estudiante2" th:field="*{estudiante2}">
+                    <option th:each="estudiante : ${listaEstudiantes}" th:value="${estudiante.nombre}" th:text="${estudiante.nombre}">Nombre del Estudiante 2</option>
+                </select>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('estudiante2')}" th:errors="*{estudiante2}"></small>
+                <label for="estudiante2" class="form-label">Nombre del Estudiante 2:</label>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="/lista_RegistrosProyectos.html" class="btn btn-secondary">Volver a la Lista de los registros</a>
+            <a href="/inicio4" class="btn btn-secondary">Volver al Inicio</a>
+        </form>
+    </div>
+</body>
+</html>

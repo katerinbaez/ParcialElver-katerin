@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Calificaciones</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Lista de Calificaciones</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proyecto</th>
+                    <th>Calificacion del director</th>
+                    <th>Calificacion del evaluador</th>                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="Calificacion_Proyectos : ${lista_Calififcaciones}">
+                    <td th:text="${Calificacion_Proyectos.id}">1</td>
+                    <td th:text="${Calificacion_Proyectos.proyecto_titulo}">Nombre</td>
+                    <td th:text="${Calificacion_Proyectos.calificacion_director}">Cédula</td>
+                    <td th:text="${Calificacion_Proyectos.calificacion_Evaluador}">Teléfono</td>
+					
+					<td>
+		<a class="btn btn-info btn-xs" th:href="@{'/Calificacion_Proyectos/editar'+ '/' + ${Calificacion_Proyectos.id}}" th:text="'editar'"></a>
+		&nbsp; &nbsp;
+		<a class="btn btn-danger btn-xs" th:href="@{'/Calificacion_Proyectos/eliminar'+ '/' + ${Calificacion_Proyectos.id}}" th:text="'eliminar'"></a>
+					                                </td>	
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

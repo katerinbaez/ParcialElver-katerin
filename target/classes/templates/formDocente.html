@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Docente</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/010/632/871/non_2x/abstract-wave-green-background-free-vector.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Ajuste de opacidad */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ajuste de sombra */
+        }
+
+        h1, h2 {
+            font-weight: 700;
+            color: #6ea743;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #6ea743;
+        }
+
+        button[type="submit"],
+        .btn-secondary {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button[type="submit"] {
+            background-color: rgb(0, 128, 64);
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #fff; /* Cambio de color */
+            color: rgb(0, 128, 0); /* Cambio de color */
+            border: 1px solid rgb(0, 64, 0); /* Añadir borde */
+        }
+
+        button[type="submit"]:hover,
+        .btn-secondary:hover {
+            background-color: #0cb300;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Formulario de Docente</h1>
+    <form action="/guardarDocente" method="post" th:object="${docente}" class="mt-4">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" th:field="*{nombre}" class="form-control" id="nombre" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+            <label for="cedula">Cédula:</label>
+            <input type="text" th:field="*{cedula}" class="form-control" id="cedula" placeholder="Cédula">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" th:field="*{telefono}" class="form-control" id="telefono" placeholder="Teléfono">
+        </div>
+        <div class="form-group">
+            <label for="programa">Programa:</label>
+            <input type="text" th:field="*{programa}" class="form-control" id="programa" placeholder="Programa">
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+    <a href="/lista_Docentes.html" class="btn btn-secondary">Volver a la Lista de Docentes</a>
+    <a href="/inicio1" class="btn btn-secondary">Volver al Inicio</a>
+</div>
+</body>
+</html>

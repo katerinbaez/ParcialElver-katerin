@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Evaluadores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Lista de Evaluadores</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Anteproyecto</th>
+                    <th>Evaluador</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="Evaluador : ${listaEvaluador}">
+                    <td th:text="${Evaluador.id}">1</td>
+                    <td th:text="${Evaluador.anteproyecto}">Nombre</td>
+                    <td th:text="${Estudiante.evaluador}">Correo</td>
+					
+					<td>
+		<a class="btn btn-info btn-xs" th:href="@{'/Evaluador/editar'+ '/' + ${Evaluador.id}}" th:text="'editar'"></a>
+		&nbsp; &nbsp;
+		<a class="btn btn-danger btn-xs" th:href="@{'/Evaluador/eliminar'+ '/' + ${Evaluador.id}}" th:text="'eliminar'"></a>
+					                                </td>	
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
