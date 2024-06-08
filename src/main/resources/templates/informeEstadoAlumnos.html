@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Estado del Proyecto para Alumnos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    body {
+        background-color: #f8f9fa;
+        background-image: url('https://www.uts.edu.co/sitio/wp-content/uploads/2020/04/Patente-UTS-1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    .container {
+        max-width: 800px;
+    }
+    .card {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-title {
+        margin-bottom: 0;
+    }
+    .list-group-item {
+        border: none;
+        border-top: 1px solid #dee2e6;
+    }
+    .list-group-item:first-child {
+        border-top: none;
+    }
+    .welcome-title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 58px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+        margin: 0;
+        margin-bottom: 30px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="welcome-title">INFORME DE ESTADO DEL PROYECTO PARA ALUMNOS</h1><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Calificaciones de Proyectos</h4>
+                        <ul class="list-group list-group-flush">
+                            <li th:each="calificacion : ${calificaciones}" class="list-group-item">
+                                Proyecto: <span th:text="${calificacion.proyectoTitulo}">Proyecto Titulo</span><br>
+                                Calificación Director: <span th:text="${calificacion.calificacionDirector}">Calificación Director</span><br>
+                                Calificación Evaluador: <span th:text="${calificacion.calificacionEvaluador}">Calificación Evaluador</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Observaciones de Proyectos</h4>
+                        <ul class="list-group list-group-flush">
+                            <li th:each="observacion : ${observaciones}" class="list-group-item">
+                                Proyecto: <span th:text="${observacion.proyectoTitulo}">Proyecto Titulo</span><br>
+                                Observaciones: <span th:text="${observacion.observaciones}">Observaciones</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn btn-primary mt-4">Regresar</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

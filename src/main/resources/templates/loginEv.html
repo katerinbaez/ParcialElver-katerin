@@ -1,0 +1,73 @@
+
+!DOCTYPE html>
+html lang="es">
+head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Login Evaluador</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="./css/style2.css">
+<style>
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url('https://www.uts.edu.co/sitio/wp-content/uploads/2019/09/mision.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 40px 20px;
+  padding-top: 30px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+label {
+  font-weight: 700;
+}
+.form-check-label {
+  font-weight: 400;
+}
+.btn-success {
+  width: 100%;
+}
+.title-background {
+  background-color: #36af2f;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+</style>
+/head>
+body>
+ <div class="container">
+   <form id="loginForm" action="verificarCredencialesEv" method="post">
+     <div class="title-background">
+       <h2>Iniciar sesión - Evaluador Uteista</h2>
+     </div>
+     <div class="form-group">
+       <label for="usuario">Usuario</label>
+       <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su nombre de usuario">
+     </div>
+     <div class="form-group">
+       <label for="contrasena">Contraseña</label>
+       <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+     </div>
+     <div class="form-group form-check">
+     </div>
+     <button type="submit" class="btn btn-success">Iniciar sesión</button>
+   </form>
+ </div>
+/body>
+/html>

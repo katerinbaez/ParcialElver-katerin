@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Registros de Proyectos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/vector-premium/fondo-amarillo-abstracto-lugar_961004-246.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;  
+            font-family: Arial, sans-serif;
+            position: relative; 
+        }
+        
+        .titulo {
+            margin-top: 50px;
+            font-size: 70px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-bottom: 30px;
+            color: #3153ff;
+        }
+        
+        .container {
+            margin-top: 20px;
+        }
+        
+        .table {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 15px;
+            border-color: #5563ff;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table thead {
+            background-color: rgb(255, 255, 0);
+            color: rgb(0, 0, 0);
+        }
+        
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #0073ff;
+        }
+        
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background-color: #326cff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #00a6af;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Lista de Registros de Proyectos</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proyecto</th>
+                    <th>Estudiante 1</th>
+                    <th>Estudiante 2</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="Registros_Proyectos : ${listaRegProyectos}">
+                    <td th:text="${Registros_Proyectos.id}">1</td>
+                    <td th:text="${Registros_Proyectos.proyecto_titulo}">Título</td>
+                    <td th:text="${Registros_Proyectos.estudiante1}">Nombre del Estudiante 1</td>
+                    <td th:text="${Registros_Proyectos.estudiante2}">Nombre del Estudiante 2</td>
+                    <td>
+						<a class="btn btn-info" th:href="@{'/Registros_Proyectos/editar/' + ${Registros_Proyectos.id}}" th:text="'Editar'"></a>
+						<a class="btn btn-danger" th:href="@{'/Registros_Proyectos/eliminar/' + ${Registros_Proyectos.id}}" th:text="'Eliminar'"></a>
+					</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

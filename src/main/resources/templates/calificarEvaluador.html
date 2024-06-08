@@ -1,0 +1,84 @@
+
+
+!DOCTYPE html>
+html lang="es">
+head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Calificar Anteproyecto</title>
+ <!-- Enlaces a las bibliotecas y estilos necesarios -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="./css/style15.css">
+style>
+
+body {
+   font-family: Arial, sans-serif;
+   background-color: #f5f5f5;
+   background-image: url('https://www.uts.edu.co/sitio/wp-content/uploads/2020/04/Patente-UTS-1.jpg');
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+ }
+ .container {
+   margin-top: 80px;
+   background-color: #dfe9ec;
+   padding: 50px;
+   padding-left: 50px;
+ }
+ .title {
+   text-align: center;
+   margin-bottom: 30px;
+   font-size: 48px;
+   color: #ffffff;
+   text-shadow: 2px 2px 4px rgb(0, 0, 0); 
+   margin:-0px;
+   margin-bottom: 30px;
+ }
+ .btn-primary {
+   background-color: #007bff;
+   border-color: #007bff;
+ }
+ .btn-primary:hover {
+   background-color: #0056b3;
+   border-color: #0056b3;
+ }
+ .table th, .table td {
+   vertical-align: middle;
+   background-color: #f5f5f5;
+ }
+ 
+/style>
+/head>
+body>
+ <div class="container">
+   <h1 class="title">Calificar Anteproyecto</h1>
+   
+   <form action="guardarCalificacionEv.jsp" method="post">
+     <div class="row">
+       <div class="col-md-6 offset-md-3">
+         <div class="form-group">
+           <label for="calificacion">Calificación:</label>
+           <select class="form-control" id="calificacion" name="calificacion" required>
+             <option value="seleccione calificacion">Seleccione calificación</option>
+             <option value="aprobado">Aprobado</option>
+             <option value="rechazado">Rechazado</option>
+             <option value="revision">En revisión</option>
+             <option value="finalizado">Finalizado</option>
+           </select>
+         </div>
+         <div class="form-group">
+           <label for="comentarios">Observaciones:</label>
+           <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
+         </div>
+         <input type="hidden" name="proyecto_titulo" value="<%= request.getParameter("proyecto_titulo") %>">
+         <input type="hidden" name="evaluador" value="<%= request.getParameter("evaluador") %>"> <!-- Añadido para enviar el evaluador -->
+         <button type="submit" class="btn btn-primary btn-block">Guardar Calificación</button>
+         <a href="evaluador.html" class="btn btn-success btn-block mt-3" onclick="history.back();">Cancelar</a>
+       </div>
+     </div>
+   </form>
+   
+ </div>
+/body>
+/html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gestionar Proyectos de Grado</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style13.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Gestionar Proyectos de Grado-Director</h1>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Proyecto</th>
+          <th>Alumno1</th>
+          <th>Alumno2</th>
+          <th><center>Acciones</center></th>
+        </tr>
+      </thead>
+      <tbody id="proyectos-tbody">
+        <!-- Aquí se llenarán los proyectos con JavaScript -->
+      </tbody>
+    </table>
+    <div class="text-right mb-3">
+      <a href="director.html" class="btn btn-success">Volver</a>
+    </div>
+  </div>
+
+  <script>
+    // Simulamos la data que normalmente se pasaría desde el servidor
+    const proyectos = [
+      {
+        proyectoTitulo: "Proyecto A",
+        estudiante1: "Alumno 1A",
+        estudiante2: "Alumno 2A",
+        id: 1
+      },
+      {
+        proyectoTitulo: "Proyecto B",
+        estudiante1: "Alumno 1B",
+        estudiante2: "Alumno 2B",
+        id: 2
+      }
+      // Agregar más proyectos según sea necesario
+    ];
+
+    // Llenamos la tabla con los datos
+    const tbody = document.getElementById('proyectos-tbody');
+
+    proyectos.forEach(proyecto => {
+      const tr = document.createElement('tr');
+
+      tr.innerHTML = `
+        <td>${proyecto.proyectoTitulo}</td>
+        <td>${proyecto.estudiante1}</td>
+        <td>${proyecto.estudiante2}</td>
+        <td>
+          <a href="asignarEvaluador.html?proyecto_titulo=${proyecto.proyectoTitulo}" class="btn btn-primary">Asignar Evaluador</a>
+          <a href="calificar_antePDirector.jsp?proyecto_titulo=${proyecto.proyectoTitulo}&id=${proyecto.id}" class="btn btn-primary">Calificar Anteproyecto</a>
+          <a href="lista_estudiantes.html" class="btn btn-primary">Ver Detalles del Alumno</a>
+        </td>
+      `;
+
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>

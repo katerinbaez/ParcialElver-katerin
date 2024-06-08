@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Interfaz Principal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="./css/stylesD.css">
+  <style>
+    body {
+       font-family: 'Roboto', sans-serif;
+       background-color: #f5f5f5;
+       background-image: url('https://www.uts.edu.co/sitio/wp-content/uploads/2019/09/mision.jpg');
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+     }
+     .welcome-title {
+         margin-top: 50px;
+         font-size:60px;
+         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         margin-bottom: 0px;
+         padding-top: 10px;
+         color: #0b91b6;
+       }
+     .container {
+       margin-top: 70px;
+       background-color: #f5f5f5;
+     }
+     .module {
+       background-color: #007bff;
+       color: #fff;
+       padding: 20px;
+       text-align: center;
+       border-radius: 5px;
+       margin-bottom: 20px;
+       cursor: pointer;
+       transition: background-color 0.3s;
+     }
+     .module:hover {
+       background-color: #00b389;
+     }
+     .corner-btn {
+       position: fixed;
+       top:10px;
+       margin-top: 650px;
+       bottom: 30px;
+       right: 30px;
+     }
+  </style>
+</head>
+<body>
+  <div class="container text-center">
+    <h1 class="welcome-title">BIENVENIDO AL SISTEMA DE <br> GESTION ACADEMICA-DIRECTOR</h1><br><br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="module" onclick="window.location.href='gestionarProyectos.html'">
+          <h2><i class="fas fa-tasks"></i> Gestionar Proyectos de Grado</h2>
+          <p>Agregar, editar y eliminar proyectos de grado.</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="module" onclick="window.location.href='formatosDirector.html'">
+          <h2><i class="fas fa-file-alt"></i> Consultar Formatos de Grado</h2>
+          <p>Ver los formatos disponibles para los proyectos de grado.</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="module" onclick="window.location.href='ConsultarCalendarioD.html'">
+          <h2><i class="fas fa-calendar-alt"></i> Consultar Calendario Academico</h2>
+          <p>Revisar las fechas importantes del calendario academico.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <a href="/inicio" class="btn btn-primary corner-btn">Regresar</a>
+
+</body>
+</html>

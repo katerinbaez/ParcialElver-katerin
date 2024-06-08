@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asignar Evaluador</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style13.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Asignar Evaluador</h1>
+        <form id="asignar-evaluador-form" action="/asignar_evaluador_procesar" method="POST">
+            <div class="form-group">
+                <label for="proyectoTitulo">Proyecto:</label>
+                <input type="text" class="form-control" id="proyectoTitulo" name="proyectoTitulo" value="Proyecto A" readonly>
+            </div>
+            <div class="mb-3 form-floating">
+				<select class="form-control" name="evaluador" id="evaluador" required>
+				    <option value="" disabled selected>Seleccione un evaluador</option>
+				    <option th:each="docente : ${listaDocente}" th:value="${docente.nombre}" th:text="${docente.nombre}"></option>
+				</select>
+                <label for="evaluador" class="form-label p-3">Evaluador: </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Asignar</button>
+            <a href="director.html" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>
